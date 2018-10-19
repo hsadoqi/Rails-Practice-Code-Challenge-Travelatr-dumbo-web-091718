@@ -1,0 +1,6 @@
+<h1> All Destinations </h1>
+<% @destinations.each do |destination| %>
+  <ul>
+    <li><%= link_to "#{destination.name}, #{destination.country}", destination_path(destination) %></li>
+  </ul>
+<% end %>

@@ -1,0 +1,30 @@
+<h1><%= @destination.name %></h1>
+<h2><%= @destination.country %></h2>
+
+
+<h4>Average Age of Bloggers:</h4>
+<% if @destination.bloggers.empty? %>
+  <%= "No one has blogged about this destination!" %>
+<% else %>
+  <%= @destination.average_age %>
+<% end %>
+
+<h4> Most Recent Posts Written: </h4>
+
+  <% if @destination.posts.empty? %>
+    <%= "There are no posts written for this destination" %>
+  <% else %>
+    <ul>
+    <% @destination.most_recent.each do |post| %>
+      <li><%= link_to post.title, post_path(post) %></li><br>
+      <% end %>
+      </ul>
+  <% end %>
+
+
+<h4> Most Popular Post Written:</h4>
+<% if @destination.posts.empty? %>
+  <%= "There are no posts written for this destination" %>
+<% else %>
+  <%= link_to @destination.most_likes.title, post_path(@destination.most_likes) %>
+  <% end %>

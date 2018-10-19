@@ -1,0 +1,14 @@
+<h1><%= @blogger.name %></h1>
+<h4><%= "Age: #{@blogger.age} years" %></h4>
+
+<h4>Bio:</h4>
+<p><%= @blogger.bio %></p>
+
+<h3>Total Likes on All Posts:</h3><%= @blogger.total_likes %><br>
+<h3>Most Liked Post:<h3><%= link_to @blogger.most_likes.title, post_path(@blogger.most_likes) %><br>
+<h3>Most Written About Destinations:</h3>
+<ul>
+  <% @blogger.favorite_destination.each do |dest, vals| %>
+    <li><%= link_to dest, destination_path(vals[:id]) %></li><br>
+  <% end %>
+</ul>

@@ -1,0 +1,14 @@
+<h1><%= @post.title %></h1>
+<p><%= @post.content %></p><br>
+
+
+<%= button_to "Add Like", like_path(@post)%>
+<%= @post.likes %>
+
+
+
+<h4>See more from this blogger: </h4>
+<%= link_to @post.blogger.name, blogger_path(@post.blogger) %><br>
+
+<h4>Want to read more about this destination? </h4>
+<%= link_to "#{@post.destination.name}, #{@post.destination.country}" , destination_path(@post.destination) %>
